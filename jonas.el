@@ -48,7 +48,6 @@
 (global-set-key (kbd "C-.") 'dabbrev-expand) ;; M-/ takes 3 keys - too inconvenient!
 (global-set-key (kbd "C-#") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
-
 (set-variable 'compile-command "rake ")
 (set-variable 'compile-command "mlgrep -S ")
 
@@ -121,8 +120,8 @@
 
 
 (require 'fontize)
-(global-set-key [?\C-+] 'inc-font-size)
-(global-set-key [?\C--] 'dec-font-size)
+;; (global-set-key [?\C-+] 'inc-font-size)
+;; (global-set-key [?\C--] 'dec-font-size)
 (global-set-key [?\M-+] 'font-next)
 (global-set-key [?\M--] 'font-prev)
 
@@ -147,6 +146,7 @@
 
 ;; (add-to-list 'load-path "~/pycomplexity/")
 ;; (require 'linum)
+(add-to-list 'auto-mode-alist '("\\.mirah\\'" . ruby-mode))
 ;; (require 'pycomplexity)
 ;; (add-hook 'python-mode-hook
 ;;     (function (lambda ()
