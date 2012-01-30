@@ -79,7 +79,7 @@
 	   '(("\\.cmake\\'" . cmake-mode))
 	   auto-mode-alist))
 
-(autoload 'cmake-mode "~/.xemacs/cmake-mode.el" t)
+(autoload 'cmake-mode "cmake-mode.el" t)
 
 ;; uniquify.el is a helper routine to help give buffer names a better unique name.
 (when (load "uniquify" 'NOERROR)
@@ -146,7 +146,7 @@
 
 ;; (add-to-list 'load-path "~/pycomplexity/")
 ;; (require 'linum)
-(add-to-list 'auto-mode-alist '("\\.mirah\\'" . ruby-mode))
+
 ;; (require 'pycomplexity)
 ;; (add-hook 'python-mode-hook
 ;;     (function (lambda ()
