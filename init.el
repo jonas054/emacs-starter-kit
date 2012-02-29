@@ -77,4 +77,3 @@
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
 (load "jonas.el")
-

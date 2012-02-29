@@ -98,7 +98,7 @@
            (local-file (file-relative-name
                         temp-file
                         (file-name-directory buffer-file-name))))
-      (list "/home/xtsjarv/src/check_python_syntax.sh" (list local-file))))
+      (list "/home/xtsjarv/src/check_python_syntax_edge.sh" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
 
@@ -124,12 +124,12 @@
 (global-set-key [?\M-+] 'font-next)
 (global-set-key [?\M--] 'font-prev)
 
-(setq load-path (cons (expand-file-name "/usr/share/doc/git-core/contrib/emacs") load-path))
-(require 'vc-git)
-(when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
-(require 'git)
-(autoload 'git-blame-mode "git-blame"
-  "Minor mode for incremental blame for Git." t)
+;; (setq load-path (cons (expand-file-name "/usr/share/doc/git-core/contrib/emacs") load-path))
+;; (require 'vc-git)
+;; (when (featurep 'vc-git) (add-to-list 'vc-handled-backends 'git))
+;; (require 'git)
+;; (autoload 'git-blame-mode "git-blame"
+;;   "Minor mode for incremental blame for Git." t)
 
 ;(add-to-list 'load-path "~/scala/misc/scala-tool-support/emacs")
 ;(require 'scala-mode-auto)
@@ -138,16 +138,30 @@
 ;(require 'clojure-mode)
 ;(add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
 
+(defun update-heading-with-view ()
+  (interactive)
+  (setq frame-title-format
+        (concat "["
+                (substring (or (getenv "CLEARCASE_ROOT") "      ") 6) "] %b (%f)")))
 
-(add-to-list 'auto-mode-alist '("\\.mirah\\'" . ruby-mode))
+(update-heading-with-view)
 
+(defun xor (a b)
+  (or (and a (not b)) (and (not a) b)))
 
+(defun reset-cut ()
+  "toggle the intprogram cut function to avoid odd x hangup"
+  (interactive)
+  (message "Cut is %s" (setq interprogram-cut-function
+                             (xor interprogram-cut-function
+                                  'x-select-text))))
 
-;; (add-to-list 'load-path "~/pycomplexity/")
-;; (require 'linum)
+(defun reset-paste ()
+  "toggle the intprogram paste function to avoid odd x hangup"
+  (interactive)
+  (message "Paste is %s" (setq interprogram-paste-function
+                               (xor interprogram-paste-function
+                                    'x-cut-buffer-or-selection-value))))
 
-;; (require 'pycomplexity)
-;; (add-hook 'python-mode-hook
-;;     (function (lambda ()
-;;       (pycomplexity-mode)
-;;       (linum-mode))))
+;;(setq interprogram-cut-function nil)
+
