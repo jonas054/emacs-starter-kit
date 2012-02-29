@@ -46,6 +46,9 @@
 (global-set-key (kbd "C-#") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 
+(define-key global-map [C-kp-6]  'previous-buffer)
+(define-key global-map [C-kp-4]  'next-buffer)
+
 (set-variable 'compile-command "rake ")
 (set-variable 'grep-command "mlgrep -S ")
 
@@ -109,6 +112,10 @@
 (require 'transpose-frame)
 (define-key global-map [f8]   'rotate-frame-clockwise)
 (define-key global-map [C-f8] 'flop-frame)
+(define-key global-map [M-f8] 'toggle-truncate-lines)
+
+(load "clearcase.el")
+(require 'clearcase)
 
 
 (require 'fontize)

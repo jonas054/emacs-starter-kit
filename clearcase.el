@@ -617,6 +617,11 @@ recommended to produce unified diffs, when your
 (define-key clearcase-prefix-map "?" 'clearcase-describe-current-buffer)
 (define-key clearcase-prefix-map "~" 'clearcase-version-other-window)
 
+;; Added by jonas054
+(define-key clearcase-prefix-map "B" 'clearcase-ediff-branch-base-current-buffer)
+(define-key clearcase-prefix-map "P" 'clearcase-ediff-pred-current-buffer)
+
+
 ;; To avoid confusion, we prevent VC Mode from being active at all by
 ;; undefining its keybindings for which ClearCase Mode doesn't yet have an
 ;; analogue.
