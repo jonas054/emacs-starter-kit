@@ -108,6 +108,10 @@
 (global-set-key [f5] 'flymake-display-err-menu-for-current-line)
 
 
+;; enhancements for displaying flymake errors
+(require 'flymake-cursor)
+
+
 ;; Change between hortizontal and vertical split.
 (require 'transpose-frame)
 (define-key global-map [f8]   'rotate-frame-clockwise)
