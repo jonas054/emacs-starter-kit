@@ -113,6 +113,7 @@
 ;; enhancements for displaying flymake errors
 (require 'flymake-cursor)
 
+(setq flymake-gui-warnings-enabled nil)
 
 ;; Change between hortizontal and vertical split.
 (require 'transpose-frame)
