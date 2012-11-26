@@ -183,3 +183,5 @@
         '(("^=\\w+.*\\(.*\n\\)*?=cut" 0 font-lock-comment-face)
           ))))
 (require 'php-mode)
+;; Start ediff with buffers side-by-side.
+(setq ediff-split-window-function 'split-window-horizontally)
