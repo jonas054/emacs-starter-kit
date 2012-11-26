@@ -13,6 +13,16 @@
 (add-to-list 'auto-mode-alist '("\\.pod$" . pod-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$" . tt-mode))
 
+(setq cperl-extra-newline-before-brace t
+      cperl-brace-offset              -2
+      cperl-merge-trailing-else        nil)
+
+(add-hook 'cperl-mode-hook
+      (lambda ()
+       (font-lock-add-keywords nil
+        '(("^=\\w+.*\\(.*\n\\)*?=cut" 0 font-lock-comment-face)
+          ))))
+
 ;; TODO: flymake
 ;; TODO: electric bugaloo 
 

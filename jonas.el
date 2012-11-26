@@ -172,17 +172,6 @@
 
 ;;(setq interprogram-cut-function nil)
 
-(setq cperl-extra-newline-before-brace t
-      cperl-brace-offset              -2
-      cperl-merge-trailing-else        nil)
-
-
-(add-hook 'cperl-mode-hook
-      (lambda ()
-       (font-lock-add-keywords nil
-        '(("^=\\w+.*\\(.*\n\\)*?=cut" 0 font-lock-comment-face)
-          ))))
-
 (require 'php-mode)
 
 ;; When you have multiple buffers showing and you want to maximize one
