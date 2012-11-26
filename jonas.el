@@ -67,6 +67,8 @@
 (add-to-list 'auto-mode-alist '("\\.mak\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.make\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.cs\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.rcw\\'" . conf-unix-mode))
+
 
 (setq auto-mode-alist
 	  (append
