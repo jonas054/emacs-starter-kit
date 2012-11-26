@@ -182,6 +182,13 @@
        (font-lock-add-keywords nil
         '(("^=\\w+.*\\(.*\n\\)*?=cut" 0 font-lock-comment-face)
           ))))
+
 (require 'php-mode)
+
+;; When you have multiple buffers showing and you want to maximize one
+;; of them enter C-x 1 or C-x 0 as usual. To restore your previous
+;; window configuration enter C-c <left>.
+(winner-mode 1)
+
 ;; Start ediff with buffers side-by-side.
 (setq ediff-split-window-function 'split-window-horizontally)
