@@ -100,7 +100,7 @@
            (local-file (file-relative-name
                         temp-file
                         (file-name-directory buffer-file-name))))
-      (list "/home/xtsjarv/src/check_python_syntax_edge.sh" (list local-file))))
+      (list "/home/xtsjarv/src/check_python_syntax2.sh" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
 
