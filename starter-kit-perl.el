@@ -17,11 +17,16 @@
       cperl-brace-offset              -2
       cperl-merge-trailing-else        nil)
 
+;; Finding POD is supposedly expensive, so cperl avoids doing so to
+;; keep editing responsive.
+;; From: http://www.perlmonks.org/bare/index.pl/?node_id=624541
+(defun my-perl-refontify ()
+  (interactive)
+  (cperl-find-pods-heres)
+  (font-lock-fontify-buffer))
 (add-hook 'cperl-mode-hook
       (lambda ()
-       (font-lock-add-keywords nil
-        '(("^=\\w+.*\\(.*\n\\)*?=cut" 0 font-lock-comment-face)
-          ))))
+       (my-perl-refontify)))
 
 ;; TODO: flymake
 ;; TODO: electric bugaloo 
