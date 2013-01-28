@@ -545,6 +545,9 @@ recommended to produce unified diffs, when your
 
 ;;{{{ Global variables
 
+;; For Emacs 24 compatibility: make sure directory-sep-char is defined.
+(defconst directory-sep-char ?/)
+
 ;; Initialize clearcase-pname-sep-regexp according to
 ;; directory-sep-char.
 (defvar clearcase-pname-sep-regexp
