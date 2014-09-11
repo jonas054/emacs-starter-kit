@@ -151,7 +151,12 @@
         (concat "["
                 (substring (or (getenv "CLEARCASE_ROOT") "      ") 6) "] %b (%f)")))
 
-(update-heading-with-view)
+(defun update-heading-with-host ()
+  (interactive)
+  (setq frame-title-format
+        (concat "[" (getenv "HOST") "] %b (%f)")))
+
+(update-heading-with-host)
 
 (defun xor (a b)
   (or (and a (not b)) (and (not a) b)))
@@ -181,3 +186,37 @@
 
 ;; Start ediff with buffers side-by-side.
 (setq ediff-split-window-function 'split-window-horizontally)
+
+
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+
+
+
+(defun day-colors ()
+  (interactive)
+  (set-foreground-color "#000000")
+  (set-background-color "#ffffff"))
+
+(defun night-colors ()
+  (interactive)
+  (set-foreground-color "#ffffff")
+  (set-background-color "#000000"))
+
+(global-set-key [(f9)] 'day-colors)
+(global-set-key [(control f9)] 'night-colors)
+
+(setq show-trailing-whitespace 't)
+
+
+
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+
+(global-auto-revert-mode t)
