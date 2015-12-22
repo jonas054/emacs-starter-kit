@@ -49,7 +49,7 @@
 (define-key global-map [C-kp-6]  'previous-buffer)
 (define-key global-map [C-kp-4]  'next-buffer)
 
-(set-variable 'compile-command "rake ")
+(set-variable 'compile-command "make ")
 (set-variable 'grep-command "mlgrep -S ")
 
 ;;; Use "%" to jump to the matching parenthesis.
@@ -63,11 +63,11 @@
 
 
 ;; --- JONAS ---
-(require 'clearcase)
 (add-to-list 'auto-mode-alist '("\\.mak\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.make\\'" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.cs\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.rcw\\'" . conf-unix-mode))
+(add-to-list 'auto-mode-alist '("\\.bat\\'" . dos-mode))
 
 
 (setq auto-mode-alist
@@ -121,10 +121,6 @@
 (define-key global-map [C-f8] 'flop-frame)
 (define-key global-map [M-f8] 'toggle-truncate-lines)
 
-(load "clearcase.el")
-(require 'clearcase)
-
-
 (require 'fontize)
 ;; (global-set-key [?\C-+] 'inc-font-size)
 ;; (global-set-key [?\C--] 'dec-font-size)
@@ -144,12 +140,6 @@
 ;; clojure-mode
 ;(require 'clojure-mode)
 ;(add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
-
-(defun update-heading-with-view ()
-  (interactive)
-  (setq frame-title-format
-        (concat "["
-                (substring (or (getenv "CLEARCASE_ROOT") "      ") 6) "] %b (%f)")))
 
 (defun update-heading-with-host ()
   (interactive)
@@ -207,8 +197,8 @@
   (set-foreground-color "#ffffff")
   (set-background-color "#000000"))
 
-(global-set-key [(f9)] 'day-colors)
-(global-set-key [(control f9)] 'night-colors)
+(global-set-key [(control f5)] 'day-colors)
+(global-set-key [(control f6)] 'night-colors)
 
 (setq show-trailing-whitespace 't)
 
@@ -220,3 +210,13 @@
 
 
 (global-auto-revert-mode t)
+
+
+;; (setq setup-xref-path  (format "%s/%s" xref-base-dir "setup_xref.el"))
+;; (load setup-xref-path)
+
+
+;; (require 'cask "~/.cask/cask.el")
+;; (cask-initialize)
+
+;; (add-hook 'after-init-hook #'global-flycheck-mode)

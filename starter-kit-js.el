@@ -20,7 +20,7 @@
        (add-to-list 'auto-mode-alist '("\\.js$" . ,mode))
        (add-to-list 'auto-mode-alist '("\\.json$" . ,mode))
        (add-hook ',hook 'moz-minor-mode)
-       (add-hook ',hook 'esk-paredit-nonlisp)
+       ;(add-hook ',hook 'esk-paredit-nonlisp)
        (add-hook ',hook 'run-coding-hook)
        (add-hook ',hook 'run-esk-js-mode-hook)
        (setq ,indent 2)
@@ -36,7 +36,7 @@
           (0 (progn (compose-region (match-beginning 1)
                                     (match-end 1) "ƒ")
                     nil))))))
-(add-hook 'esk-js-mode-hook 'pretty-functions)
+;(add-hook 'esk-js-mode-hook 'pretty-functions)
 
 (if (< (string-to-number emacs-version) 23.2)
     (esk-configure-javascript "espresso")
